@@ -16,6 +16,7 @@ Explique ici pourquoi tu construis ce MVC.
 - [x] Initialiser le dépôt Git
 - [x] Créer le Front Controller
 - [x] Créer un routeur statique
+- [x] Ajouter une route dynamique `/products/{id}`
 
 ## Architecture actuelle
 
