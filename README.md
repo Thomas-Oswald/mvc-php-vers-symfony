@@ -14,4 +14,10 @@ Explique ici pourquoi tu construis ce MVC.
 
 - [x] Préparer l’environnement
 - [x] Initialiser le dépôt Git
-- [ ] Créer le Front Controller
+- [x] Créer le Front Controller
+
+## Architecture actuelle
+
+Navigateur → serveur PHP → `public/index.php`
+
+Le Front Controller est le point d’entrée unique de l’application. Il récupère actuellement la méthode HTTP et l’URI demandée.
