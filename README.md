@@ -17,6 +17,7 @@ Explique ici pourquoi tu construis ce MVC.
 - [x] Créer le Front Controller
 - [x] Créer un routeur statique
 - [x] Ajouter une route dynamique `/products/{id}`
+- [x] Séparer le chemin des paramètres de requête
 
 ## Architecture actuelle
 
@@ -27,3 +28,7 @@ Le Front Controller est le point d’entrée unique de l’application. Il récu
 ## Route dynamique
 
 La route `/products/{id}` utilise une expression régulière pour récupérer un identifiant numérique. La valeur capturée dans `$matches[1]` est convertie en entier.
+
+## Paramètres de requête
+
+`parse_url()` extrait le chemin utilisé par le routeur. Les paramètres placés après `?` sont accessibles dans `$_GET`. L’opérateur `??` fournit une valeur par défaut lorsqu’un paramètre est absent.
