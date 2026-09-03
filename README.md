@@ -23,3 +23,7 @@ Explique ici pourquoi tu construis ce MVC.
 Navigateur → serveur PHP → `public/index.php`
 
 Le Front Controller est le point d’entrée unique de l’application. Il récupère actuellement la méthode HTTP et l’URI demandée.
+
+## Route dynamique
+
+La route `/products/{id}` utilise une expression régulière pour récupérer un identifiant numérique. La valeur capturée dans `$matches[1]` est convertie en entier.
