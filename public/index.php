@@ -1,25 +1,31 @@
-<?php 
+<?php
 
 declare(strict_types=1);
+
+require_once dirname(__DIR__) . '/src/Controller/HomeController.php';
+require_once dirname(__DIR__) . '/src/Controller/ProductController.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($uri, PHP_URL_PATH);
 
-if ($method === 'GET' && $path === '/') {
-    echo "Page d'accueil";
-} elseif ($method === 'GET' && $path === '/products') {
-    echo 'Liste des produits';
+$homeController = new HomeController();
+$productController = new ProductController();
 
+if ($method === 'GET' && $path === '/') {
+    $homeController->index();
+} elseif ($method === 'GET' && $path === '/products') {
     $sort = $_GET['sort'] ?? 'id';
-    echo '<br>Tri demandé : ' . htmlspecialchars($sort, ENT_QUOTES, 'UTF-8');
+
+    $productController->index($sort);
 } elseif (
     $method === 'GET'
     && preg_match('#^/products/(\d+)$#', $path, $matches)
 ) {
     $id = (int) $matches[1];
-    echo "Fiche du produit numéro $id";
+
+    $productController->show($id);
 } else {
     http_response_code(404);
-    echo "Page non trouvée";
+    echo 'Page non trouvée';
 }

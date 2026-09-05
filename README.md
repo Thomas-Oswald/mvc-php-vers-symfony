@@ -32,3 +32,29 @@ La route `/products/{id}` utilise une expression régulière pour récupérer un
 ## Paramètres de requête
 
 `parse_url()` extrait le chemin utilisé par le routeur. Les paramètres placés après `?` sont accessibles dans `$_GET`. L’opérateur `??` fournit une valeur par défaut lorsqu’un paramètre est absent.
+
+## Les contrôleurs
+
+Le fichier `public/index.php` est le Front Controller : toutes les requêtes HTTP passent par lui.
+
+Il identifie la méthode et le chemin demandés, puis appelle le contrôleur correspondant.
+
+- `HomeController` gère la page d'accueil.
+- `ProductController::index()` gère la liste des produits.
+- `ProductController::show()` gère la fiche d'un produit.
+
+Les contrôleurs sont placés dans `src/Controller`.
+
+Pour le moment, ils sont chargés manuellement avec `require_once`. Cette étape sera ensuite automatisée avec Composer et l'autoloading PSR-4.
+
+## Séparation des vues
+
+Les contrôleurs ne contiennent plus directement le HTML.
+
+Chaque contrôleur charge une vue située dans le dossier `templates` :
+
+- `HomeController::index()` charge `templates/home/index.php`.
+- `ProductController::index()` charge `templates/product/index.php`.
+- `ProductController::show()` charge `templates/product/show.php`.
+
+Les données préparées dans une méthode du contrôleur, comme `$sort` ou `$id`, sont accessibles dans la vue chargée par cette méthode.
