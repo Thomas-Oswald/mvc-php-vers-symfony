@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/src/Controller/HomeController.php';
-require_once dirname(__DIR__) . '/src/Controller/ProductController.php';
+use App\Controller\HomeController;
+use App\Controller\ProductController;
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];

@@ -58,3 +58,15 @@ Chaque contrôleur charge une vue située dans le dossier `templates` :
 - `ProductController::show()` charge `templates/product/show.php`.
 
 Les données préparées dans une méthode du contrôleur, comme `$sort` ou `$id`, sont accessibles dans la vue chargée par cette méthode.
+
+## Composer et l'autoloading PSR-4
+
+Composer charge automatiquement les classes du projet.
+
+La configuration `"App\\": "src/"` signifie que le namespace `App` correspond au dossier `src`.
+
+Par exemple :
+
+`App\Controller\ProductController` correspond à `src/Controller/ProductController.php`.
+
+Le fichier `vendor/autoload.php` remplace les `require_once` écrits manuellement pour chaque classe.

@@ -1,0 +1,10 @@
+{
+    "name": "thomas-oswald/mvc-php-vers-symfony",
+    "description": "MVC PHP pédagogique avant Symfony",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
